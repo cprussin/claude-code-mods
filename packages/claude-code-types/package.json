@@ -1,0 +1,9 @@
+{
+  "description": "The Claude Code function-hooks API declarations ('claude-code', 'claude-code/testing'), vendored for type-checking mods",
+  "license": "MIT",
+  "name": "@claude-code-mods/claude-code-types",
+  "private": true,
+  "type": "module",
+  "types": "./index.d.ts",
+  "version": "0.0.0"
+}

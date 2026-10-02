@@ -1,0 +1,9 @@
+{
+  "author": {
+    "email": "connor@prussin.net",
+    "name": "Connor Prussin"
+  },
+  "description": "Sample mod: denies edits to .env files",
+  "name": "protect-env-files",
+  "version": "0.1.0"
+}
