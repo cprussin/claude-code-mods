@@ -1,0 +1,54 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["NODE_ENV"],
+  "globalPassThroughEnv": ["BIOME_BINARY", "FORCE_COLOR"],
+  "tasks": {
+    "//#build": {
+      "dependsOn": ["//#build:install-modules"]
+    },
+    "//#build:install-modules": {
+      "inputs": ["**/package.json", "bunfig.toml", "!**/dist/**"],
+      "outputs": ["bun.lock"]
+    },
+    "//#fix": {
+      "with": ["//#fix:lint"]
+    },
+    "//#fix:lint": {
+      "cache": false,
+      "dependsOn": ["//#build"]
+    },
+    "//#test": {
+      "with": ["//#test:dependencies", "//#test:lint"]
+    },
+    "//#test:dependencies": {
+      "cache": false,
+      "dependsOn": ["//#build"]
+    },
+    "//#test:lint": {
+      "dependsOn": ["//#build"]
+    },
+    "build": {
+      "dependsOn": ["//#build", "^build"],
+      "inputs": ["$TURBO_DEFAULT$", "!README.md", "!**/*.test.*"],
+      "outputs": ["dist/**"]
+    },
+    "test": {
+      "with": ["test:types", "test:unit", "test:validate"]
+    },
+    "test:types": {
+      "dependsOn": ["^build", "//#build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/packages/claude-code-types/index.d.ts"
+      ]
+    },
+    "test:unit": {
+      "dependsOn": ["^build", "//#build"],
+      "inputs": ["$TURBO_DEFAULT$"]
+    },
+    "test:validate": {
+      "dependsOn": ["//#build"]
+    }
+  },
+  "ui": "tui"
+}

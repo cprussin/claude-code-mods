@@ -1,0 +1,19 @@
+# Node / TypeScript
+node_modules/
+.turbo/
+dist/
+coverage/
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+
+# Editor / OS
+*.swp
+.DS_Store
+
+# Local tool state
+.claude/
+
+# Written by Claude Code when it loads a mod
+.claude-plugin/types/

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "types": ["@claude-code-mods/claude-code-types"]
+  },
+  "extends": "@cprussin/tsconfig/base.json",
+  "include": ["hooks", "tests"]
+}

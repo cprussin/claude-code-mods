@@ -1,0 +1,19 @@
+{
+  "description": "Sample mod: denies Edit tool calls on .env files",
+  "devDependencies": {
+    "@anthropic-ai/claude-code": "catalog:",
+    "@claude-code-mods/claude-code-types": "workspace:*",
+    "@cprussin/tsconfig": "catalog:",
+    "typescript": "catalog:"
+  },
+  "license": "MIT",
+  "name": "@claude-code-mods/protect-env-files",
+  "private": true,
+  "scripts": {
+    "test:types": "tsc --noEmit",
+    "test:unit": "CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1 claude plugin test .",
+    "test:validate": "claude plugin validate ."
+  },
+  "type": "module",
+  "version": "0.1.0"
+}
