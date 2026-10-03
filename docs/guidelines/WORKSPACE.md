@@ -18,6 +18,9 @@ Every bun workspace lives in `/packages`:
   (`protect-env-files`). See [MODS.md](./MODS.md).
 - **`claude-code-types`** — the vendored `claude-code` /
   `claude-code/testing` declarations every mod type-checks against.
+- **Artifact pages** — claude.ai Artifact pages built from TypeScript
+  (`status-summary`): `index.html` plus a `page.js` bundled by `bun build`,
+  logic unit-tested with `bun test`.
 
 ## Package READMEs
 
