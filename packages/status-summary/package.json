@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "zod": "catalog:"
+  },
+  "description": "Status Summary artifact page: what needs you across all Claude Code sessions",
+  "devDependencies": {
+    "@cprussin/tsconfig": "catalog:",
+    "@types/bun": "catalog:",
+    "typescript": "catalog:"
+  },
+  "license": "MIT",
+  "name": "@claude-code-mods/status-summary",
+  "private": true,
+  "scripts": {
+    "build": "bun build src/page.ts --outdir dist --target browser --minify && cp index.html dist/index.html",
+    "test:types": "tsc --noEmit",
+    "test:unit": "bun test"
+  },
+  "type": "module",
+  "version": "0.1.0"
+}

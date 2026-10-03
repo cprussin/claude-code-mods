@@ -7,6 +7,10 @@ Claude Code's function hooks. One mod per package in [`packages/`](packages).
 |---|---|
 | [protect-env-files](packages/protect-env-files) | Sample: denies edits to `.env` files |
 
+| Artifact page | What it does |
+|---|---|
+| [status-summary](packages/status-summary) | claude.ai page: what needs you across all sessions, your TODOs, session states |
+
 ## Use a mod
 
 ```sh
