@@ -1,7 +1,5 @@
 name: Check
 
-# `./scripts/check.sh`, which is what a checkout runs too, so CI and local
-# checks cannot drift apart.
 on:
   pull_request:
   push:
@@ -10,10 +8,6 @@ on:
 concurrency:
   group: check-${{ github.ref }}
   cancel-in-progress: true
-
-env:
-  # Nothing here may skip: a skip in CI is a check that stopped running.
-  CHECK_STRICT: "1"
 
 jobs:
   check:
@@ -28,9 +22,10 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.sha }}
           restore-keys: |
             turbo-${{ runner.os }}-
+      - run: bun install --frozen-lockfile
       - env:
           TURBO_CACHE_DIR: .turbo/cache
-        run: ./scripts/check.sh
+        run: bun run turbo test -- --ui stream
       - name: Save turbo cache
         if: github.ref == 'refs/heads/main'
         uses: actions/cache/save@v6

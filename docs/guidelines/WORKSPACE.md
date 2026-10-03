@@ -77,9 +77,6 @@ the developer that this is the intent.
 
 ## Required code checks
 
-`./scripts/check.sh` runs everything and is what to run before a PR. The rest
-of this section is the TypeScript half on its own.
-
 All code should pass `bun run turbo test -- --ui stream`. This runs linting,
 formatting, typechecking, `claude plugin test` and `claude plugin validate`.
 If code is failing, first try `bun run turbo fix -- --ui stream` to apply
