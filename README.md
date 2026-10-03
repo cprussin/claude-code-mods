@@ -17,7 +17,7 @@ claude --plugin-dir packages/<mod>
 
 ```sh
 bun install
-./scripts/check.sh
+bun run turbo test -- --ui stream
 ```
 
 See [AGENTS.md](AGENTS.md) for the guidelines and

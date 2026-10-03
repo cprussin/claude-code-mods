@@ -28,10 +28,6 @@ prose, comments, identifiers, test names, commit messages and filenames alike.
 whichever spelling is in it is the spelling that comes back out, and a tree
 holding both teaches both.
 
-`scripts/test-american-english.sh` enforces it, in the `shell` group of
-`./scripts/check.sh`. The vendored Claude Code types are exempt: they are
-Anthropic's words, not ours.
-
 ## Post-edit audit (non-negotiable)
 
 After finishing edits — and before declaring a change done or opening a
@@ -106,17 +102,12 @@ each one here as it is added.
 ## Checking your work
 
 ```sh
-./scripts/check.sh                 # everything
-./scripts/check.sh typescript      # or one group: shell, typescript
+bun run turbo test -- --ui stream
 ```
 
-It installs dependencies, then runs `biome`, `turbo test` (typecheck,
-`claude plugin test`, `claude plugin validate`) and every `scripts/test-*.sh`.
-CI runs the same script.
-
-**Read a `skipped` line as loudly as a failure.** A script that cannot run
-exits **77** and prints `SKIP: <why>`; that is never evidence the thing works.
-CI sets `CHECK_STRICT=1`, where a skip is a failure.
+Runs `biome`, typechecks, `claude plugin test` and `claude plugin validate`.
+CI runs the same command. See
+[WORKSPACE.md](/docs/guidelines/WORKSPACE.md#required-code-checks).
 
 ## Per-package addenda
 
